@@ -17,8 +17,12 @@ pipeline {
         }
         stage('2. docker 버전확인') {
             steps {
-                
                 sh 'docker version'
+            }
+        }
+        stage('3. Docker Build') {
+            steps {
+                sh 'docker build -t ex02-app:latest'
             }
         }
         
