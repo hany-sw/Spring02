@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('0. 자동화 확인1') { steps { echo '스테이지 출발' } }
+        /*stage('0. 자동화 확인1') { steps { echo '스테이지 출발' } }
         
         stage('1. Build') {
             steps {
@@ -41,7 +41,16 @@ pipeline {
                     '''
                 }
             }
+        }*/
+        stage('5. Deploy to K3s') {
+            steps {
+                sh '''
+                export KUBECONFIG=/home/vagrant/.kube/config
+                kubectl apply -f k8s-deployment.yaml
+                '''
+            }
         }
+
     }
 }
 
