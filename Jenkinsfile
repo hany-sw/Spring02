@@ -22,12 +22,12 @@ pipeline {
             }
         }
         
-        stage('2. Check Docker') {
+        stage('7. Check Docker') {
             steps {
                 sh 'docker version'
             }
         }
-        
+       
         stage('3. Docker Build') {
             steps {
                 sh 'docker build -t ex02-app:latest .'
